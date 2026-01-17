@@ -82,7 +82,7 @@ export default {
   		},
   		fontFamily: {
   			sans: [
-  				'DM Sans',
+  				'Source Sans Pro',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
@@ -100,7 +100,7 @@ export default {
   				'sans-serif'
   			],
   			serif: [
-  				'Crimson Pro',
+  				'Source Serif Pro',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -109,7 +109,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'SF Mono',
+  				'Source Code Pro',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
@@ -175,7 +175,7 @@ export default {
   					transform: 'scale(1)'
   				}
   			},
-  			'counter': {
+  			counter: {
   				'0%': {
   					opacity: '0',
   					transform: 'translateY(20px)'
@@ -185,7 +185,7 @@ export default {
   					transform: 'translateY(0)'
   				}
   			},
-  			'shimmer': {
+  			shimmer: {
   				'0%': {
   					backgroundPosition: '-200% 0'
   				},
@@ -201,8 +201,8 @@ export default {
   			'fade-in': 'fade-in 0.5s ease-out forwards',
   			'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
   			'scale-in': 'scale-in 0.4s ease-out forwards',
-  			'counter': 'counter 0.8s ease-out forwards',
-  			'shimmer': 'shimmer 2s infinite linear'
+  			counter: 'counter 0.8s ease-out forwards',
+  			shimmer: 'shimmer 2s infinite linear'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',
