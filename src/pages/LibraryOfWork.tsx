@@ -10,93 +10,111 @@ import projectResidential from "@/assets/project-residential.jpg";
 import projectCommercial from "@/assets/project-commercial.jpg";
 import projectInterior from "@/assets/project-interior.jpg";
 
-const categories = ["All", "Construction", "Interior", "Renovation", "Architecture"];
+// Real project photos
+import craneNight from "@/assets/library/crane-night.jpg";
+import projectSignboard1 from "@/assets/library/project-signboard-1.jpg";
+import concreteBeams from "@/assets/library/concrete-beams.jpg";
+import pilingMachine from "@/assets/library/piling-machine.jpg";
+import nightConstruction from "@/assets/library/night-construction.jpg";
+import equipmentLoading from "@/assets/library/equipment-loading.jpg";
+import projectSignboard2 from "@/assets/library/project-signboard-2.jpg";
+import constructionSite from "@/assets/library/construction-site.jpg";
+import doorInstallation from "@/assets/library/door-installation.jpg";
+import interiorRenovation from "@/assets/library/interior-renovation.jpg";
 
-// Sample work photos - these can be replaced with actual project photos
+const categories = ["All", "Construction", "Piling", "Renovation", "Site Progress"];
+
 const workPhotos = [
   {
     id: 1,
-    title: "Luxury Villa Construction",
-    category: "Construction",
+    title: "Heavy Equipment Transport",
+    category: "Piling",
     location: "Kuala Lumpur",
-    image: projectResidential,
+    image: craneNight,
   },
   {
     id: 2,
-    title: "Corporate Office Build",
+    title: "DBKL Project Signboard - Brickfields",
     category: "Construction",
-    location: "Selangor",
-    image: projectCommercial,
+    location: "Kuala Lumpur",
+    image: projectSignboard1,
   },
   {
     id: 3,
-    title: "Modern Living Room Design",
-    category: "Interior",
-    location: "Penang",
-    image: projectInterior,
+    title: "Concrete Pile Beams",
+    category: "Piling",
+    location: "Kuala Lumpur",
+    image: concreteBeams,
   },
   {
     id: 4,
-    title: "Heritage Home Renovation",
-    category: "Renovation",
-    location: "Johor",
-    image: projectResidential,
+    title: "Piling Machine Operation",
+    category: "Piling",
+    location: "Kuala Lumpur",
+    image: pilingMachine,
   },
   {
     id: 5,
-    title: "Commercial Space Interior",
-    category: "Interior",
+    title: "Night Shift Construction Work",
+    category: "Construction",
     location: "Kuala Lumpur",
-    image: projectCommercial,
+    image: nightConstruction,
   },
   {
     id: 6,
-    title: "Architectural Design Project",
-    category: "Architecture",
-    location: "Selangor",
-    image: projectInterior,
+    title: "Equipment Loading Operations",
+    category: "Construction",
+    location: "Kuala Lumpur",
+    image: equipmentLoading,
   },
   {
     id: 7,
-    title: "Residential Foundation Work",
+    title: "Project Signboard - Lucky Ideas",
     category: "Construction",
-    location: "Penang",
-    image: projectResidential,
+    location: "Kuala Lumpur",
+    image: projectSignboard2,
   },
   {
     id: 8,
-    title: "Kitchen Renovation",
-    category: "Renovation",
+    title: "Building Construction Progress",
+    category: "Site Progress",
     location: "Kuala Lumpur",
-    image: projectInterior,
+    image: constructionSite,
   },
   {
     id: 9,
-    title: "Office Building Construction",
-    category: "Construction",
-    location: "Johor",
-    image: projectCommercial,
+    title: "Security Door Installation",
+    category: "Renovation",
+    location: "Kuala Lumpur",
+    image: doorInstallation,
   },
   {
     id: 10,
-    title: "Luxury Bedroom Interior",
-    category: "Interior",
+    title: "Interior Renovation Work",
+    category: "Renovation",
+    location: "Kuala Lumpur",
+    image: interiorRenovation,
+  },
+  {
+    id: 11,
+    title: "Luxury Residential Project",
+    category: "Construction",
     location: "Selangor",
     image: projectResidential,
   },
   {
-    id: 11,
-    title: "Bathroom Renovation",
+    id: 12,
+    title: "Commercial Building",
+    category: "Construction",
+    location: "Kuala Lumpur",
+    image: projectCommercial,
+  },
+  {
+    id: 13,
+    title: "Interior Design Showcase",
     category: "Renovation",
     location: "Penang",
     image: projectInterior,
-  },
-  {
-    id: 12,
-    title: "Contemporary Architecture",
-    category: "Architecture",
-    location: "Kuala Lumpur",
-    image: projectCommercial,
   },
 ];
 
