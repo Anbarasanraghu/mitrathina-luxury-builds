@@ -99,14 +99,15 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-white/60 text-sm">
-                  Level 15, Tower A, KLCC<br />
-                  50088 Kuala Lumpur, Malaysia
+                  Faber Heights Condominium<br />
+                  Block A, 78-13-4, Jalan Desa Utama<br />
+                  Taman Desa, 58100 - Kuala Lumpur, Malaysia
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+60123456789" className="text-white/60 hover:text-primary transition-colors text-sm">
-                  +60 12-345 6789
+                <a href="tel:+60169657705" className="text-white/60 hover:text-primary transition-colors text-sm">
+                  +60 16-965 7705
                 </a>
               </li>
               <li className="flex items-center gap-3">

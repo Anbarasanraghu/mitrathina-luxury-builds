@@ -9,6 +9,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Projects", path: "/projects" },
+  { name: "Locations", path: "/locations" },
   { name: "Library", path: "/library" },
   { name: "Certifications", path: "/certifications" },
   { name: "Contact", path: "/contact" },
@@ -71,9 +72,9 @@ export const Navbar = () => {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-4">
-              <a href="tel:+60123456789" className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors">
+              <a href="tel:+60169657705" className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm font-medium">+60 12-345 6789</span>
+                <span className="text-sm font-medium">+60 16-965 7705</span>
               </a>
               <Button variant="gold" size="sm" asChild>
                 <Link to="/contact">Get a Quote</Link>

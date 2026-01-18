@@ -117,8 +117,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Visit Us</h3>
                       <p className="text-slate-light text-sm">
-                        Level 15, Tower A, KLCC<br />
-                        50088 Kuala Lumpur, Malaysia
+                        Faber Heights Condominium<br />
+                        Block A, 78-13-4, Jalan Desa Utama<br />
+                        Taman Desa, 58100 - Kuala Lumpur, Malaysia
                       </p>
                     </div>
                   </div>
@@ -129,8 +130,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Call Us</h3>
-                      <a href="tel:+60123456789" className="text-slate-light text-sm hover:text-primary transition-colors">
-                        +60 12-345 6789
+                      <a href="tel:+60169657705" className="text-slate-light text-sm hover:text-primary transition-colors">
+                        +60 16-965 7705
                       </a>
                     </div>
                   </div>
@@ -171,7 +172,7 @@ const Contact = () => {
                     Need an immediate response? Chat with us on WhatsApp.
                   </p>
                   <Button variant="gold" className="w-full" asChild>
-                    <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/60169657705" target="_blank" rel="noopener noreferrer">
                       Chat on WhatsApp
                     </a>
                   </Button>
