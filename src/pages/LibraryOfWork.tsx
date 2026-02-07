@@ -1,16 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { X, ChevronLeft, ChevronRight, ArrowRight, ZoomIn, Grid3x3, Layers } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-// import projectResidential from "@/assets/project-residential.jpg";
-// import projectCommercial from "@/assets/project-commercial.jpg";
-// import projectInterior from "@/assets/project-interior.jpg";
-
-// Real project photos
+// Import all your images here (keeping your existing imports)
 import craneNight from "@/assets/library/crane-night.jpg";
 import projectSignboard1 from "@/assets/library/project-signboard-1.jpg";
 import concreteBeams from "@/assets/library/concrete-beams.jpg";
@@ -24,7 +20,6 @@ import interiorRenovation from "@/assets/library/interior-renovation.jpg";
 
 // Additional photos
 import photo1 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.19 PM (1).jpeg";
-// import photo2 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.19 PM.jpeg";
 import photo3 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.20 PM (1).jpeg";
 import photo4 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.20 PM (2).jpeg";
 import photo5 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.20 PM.jpeg";
@@ -39,8 +34,6 @@ import photo13 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.23 PM (1
 import photo14 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.23 PM (2).jpeg";
 import photo15 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.23 PM.jpeg";
 import photo16 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.24 PM (1).jpeg";
-// import photo17 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.24 PM (2).jpeg";
-// import photo18 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.24 PM (3).jpeg";
 import photo19 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.24 PM.jpeg";
 import photo20 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.25 PM (1).jpeg";
 import photo21 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.25 PM (2).jpeg";
@@ -70,7 +63,6 @@ import photo44 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.32 PM (2
 import photo45 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.32 PM.jpeg";
 import photo46 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.33 PM (1).jpeg";
 import photo47 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.33 PM (2).jpeg";
-// import photo48 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.33 PM (3).jpeg";
 import photo49 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.33 PM.jpeg";
 import photo50 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.34 PM (1).jpeg";
 import photo51 from "@/assets/library/WhatsApp Image 2026-01-17 at 4.34.34 PM (2).jpeg";
@@ -186,27 +178,6 @@ const workPhotos = [
     location: "Kuala Lumpur",
     image: interiorRenovation,
   },
-  // {
-  //   id: 11,
-  //   title: "Luxury Residential Project",
-  //   category: "Construction",
-  //   location: "Selangor",
-  //   image: projectResidential,
-  // },
-  // {
-  //   id: 12,
-  //   title: "Commercial Building",
-  //   category: "Construction",
-  //   location: "Kuala Lumpur",
-  //   image: projectCommercial,
-  // },
-  // {
-  //   id: 13,
-  //   title: "Interior Design Showcase",
-  //   category: "Renovation",
-  //   location: "Penang",
-  //   image: projectInterior,
-  // },
   {
     id: 14,
     title: "Project Photo 1",
@@ -214,13 +185,6 @@ const workPhotos = [
     location: "Kuala Lumpur",
     image: photo1,
   },
-  // {
-  //   id: 15,
-  //   title: "Project Photo 2",
-  //   category: "Construction",
-  //   location: "Kuala Lumpur",
-  //   image: photo2,
-  // },
   {
     id: 16,
     title: "Project Photo 3",
@@ -319,20 +283,6 @@ const workPhotos = [
     location: "Kuala Lumpur",
     image: photo16,
   },
-  // {
-  //   id: 30,
-  //   title: "Project Photo 17",
-  //   category: "Renovation",
-  //   location: "Kuala Lumpur",
-  //   image: photo17,
-  // },
-  // {
-  //   id: 31,
-  //   title: "Project Photo 18",
-  //   category: "Construction",
-  //   location: "Kuala Lumpur",
-  //   image: photo18,
-  // },
   {
     id: 32,
     title: "Project Photo 19",
@@ -536,13 +486,6 @@ const workPhotos = [
     location: "Kuala Lumpur",
     image: photo47,
   },
-  // {
-  //   id: 61,
-  //   title: "Project Photo 48",
-  //   category: "Construction",
-  //   location: "Kuala Lumpur",
-  //   image: photo48,
-  // },
   {
     id: 62,
     title: "Project Photo 49",
@@ -832,190 +775,153 @@ const workPhotos = [
   },
 ];
 
-// Impressive Premium Gallery Component
-const ImpressionGallery = ({ photos, onSelectPhoto }: { photos: any[]; onSelectPhoto: (index: number) => void }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  // Create dynamic grid layout with varying sizes
-  const getGridClass = (index: number) => {
-    const patterns = [
-      "lg:col-span-2 lg:row-span-2", // Large
-      "lg:col-span-1 lg:row-span-1", // Normal
-      "lg:col-span-1 lg:row-span-1", // Normal
-      "lg:col-span-1 lg:row-span-2", // Tall
-      "lg:col-span-1 lg:row-span-1", // Normal
-      "lg:col-span-2 lg:row-span-1", // Wide
-      "lg:col-span-1 lg:row-span-1", // Normal
-      "lg:col-span-1 lg:row-span-1", // Normal
-    ];
-    return patterns[index % patterns.length];
-  };
+// Animated Grid Gallery Component
+const AnimatedGridGallery = ({ photos, onSelectPhoto }: { photos: any[]; onSelectPhoto: (index: number) => void }) => {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <div className="w-full">
-      {/* Gallery Grid with Masonry Layout */}
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 auto-rows-[280px] lg:auto-rows-[320px]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        {photos.map((photo, index) => (
-          <motion.div
-            key={photo.id}
-            className={`group relative overflow-hidden rounded-xl lg:rounded-2xl cursor-pointer ${getGridClass(index)}`}
-            initial={{ opacity: 0, y: 40, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: (index % 12) * 0.08,
-              duration: 0.6,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            whileHover={{ y: -8 }}
-            onClick={() => onSelectPhoto(index)}
-          >
-            {/* Background Blur */}
+      {/* Bento Grid Layout */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4">
+        {photos.map((photo, index) => {
+          // Create dynamic sizes for visual interest
+          const isLarge = index % 7 === 0;
+          const isTall = index % 11 === 0;
+          const isWide = index % 13 === 0;
+          
+          const gridClass = isLarge 
+            ? "md:col-span-2 md:row-span-2" 
+            : isTall 
+            ? "md:row-span-2" 
+            : isWide 
+            ? "md:col-span-2" 
+            : "";
+
+          return (
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-charcoal/30 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl lg:rounded-2xl"
-            />
-
-            {/* Image */}
-            <motion.div
-              className="relative w-full h-full overflow-hidden"
-              whileHover={{ scale: 1.15 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <img
-                src={photo.image}
-                alt={photo.title}
-                className="w-full h-full object-cover"
-              />
-
-              {/* Dark Gradient Overlay */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"
-                initial={{ opacity: 0.4 }}
-                whileHover={{ opacity: 0.8 }}
-                transition={{ duration: 0.4 }}
-              />
-
-              {/* Animated Border */}
-              <motion.div
-                className="absolute inset-0 border-2 border-primary/0 rounded-xl lg:rounded-2xl"
-                whileHover={{ borderColor: "rgba(212, 175, 55, 0.5)" }}
-                transition={{ duration: 0.4 }}
-              />
-            </motion.div>
-
-            {/* Content Container */}
-            <motion.div
-              className="absolute inset-0 flex flex-col justify-between p-4 lg:p-6 z-20"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Top Content */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.4 }}
-              >
-                <motion.span
-                  className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase bg-primary/20 text-primary border border-primary/60 px-3 py-1.5 rounded-full backdrop-blur-md"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(212, 175, 55, 0.3)" }}
-                >
-                  <motion.div
-                    className="w-1.5 h-1.5 bg-primary rounded-full"
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  {photo.category}
-                </motion.span>
-              </motion.div>
-
-              {/* Bottom Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.4 }}
-              >
-                <motion.h3
-                  className="text-white font-light text-base lg:text-lg mb-2 leading-tight"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ delay: 0.15 }}
-                >
-                  {photo.title}
-                </motion.h3>
-
-                <div className="flex items-center justify-between">
-                  <motion.p
-                    className="text-white/70 text-xs font-light tracking-wide"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {photo.location}
-                  </motion.p>
-
-                  <motion.div
-                    className="flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-wider"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    View
-                    <motion.div
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <ArrowRight className="w-3 h-3" />
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Number Badge */}
-            <motion.div
-              className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white text-sm font-bold border border-white/20"
-              initial={{ opacity: 0, scale: 0 }}
+              key={photo.id}
+              className={`relative group cursor-pointer overflow-hidden ${gridClass}`}
+              style={{ 
+                aspectRatio: isLarge ? "1" : isTall ? "1/2" : isWide ? "2/1" : "1" 
+              }}
+              initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index % 12) * 0.08 + 0.2, type: "spring", stiffness: 300 }}
-              whileHover={{ scale: 1.1, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.5,
+                delay: (index % 24) * 0.03,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              onHoverStart={() => setHoveredId(photo.id)}
+              onHoverEnd={() => setHoveredId(null)}
+              onClick={() => onSelectPhoto(index)}
             >
-              {index + 1}
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
+              {/* Image Container with Parallax Effect */}
+              <motion.div 
+                className="absolute inset-0 overflow-hidden bg-charcoal"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <img
+                  src={photo.image}
+                  alt={photo.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                
+                {/* Gradient Overlay */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent"
+                  initial={{ opacity: 0.6 }}
+                  whileHover={{ opacity: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                />
 
-      {/* Floating CTA */}
-      <motion.div
-        className="mt-20 text-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        <p className="text-charcoal/60 text-sm font-light tracking-widest uppercase mb-6">
-          Explore {photos.length} Premium Projects
-        </p>
-        <motion.div
-          className="inline-block"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="text-primary text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-            Scroll to discover
-            <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              <ChevronLeft className="w-4 h-4 rotate-90" />
+                {/* Animated Border */}
+                <motion.div
+                  className="absolute inset-0"
+                  initial={{ 
+                    boxShadow: "inset 0 0 0 0px rgba(212, 175, 55, 0)" 
+                  }}
+                  whileHover={{ 
+                    boxShadow: "inset 0 0 0 3px rgba(212, 175, 55, 0.6)" 
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                {/* Top Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ 
+                    opacity: hoveredId === photo.id ? 1 : 0,
+                    y: hoveredId === photo.id ? 0 : -10
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="flex justify-between items-start"
+                >
+                  <span className="text-[10px] font-bold tracking-widest uppercase bg-primary/90 text-charcoal px-2 py-1 backdrop-blur-sm">
+                    {photo.category}
+                  </span>
+                  
+                  <motion.div
+                    whileHover={{ rotate: 90, scale: 1.2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ZoomIn className="w-4 h-4 text-white/80" />
+                  </motion.div>
+                </motion.div>
+
+                {/* Bottom Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ 
+                    opacity: hoveredId === photo.id ? 1 : 0,
+                    y: hoveredId === photo.id ? 0 : 10
+                  }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  <h3 className="text-white font-medium text-sm mb-1 line-clamp-2">
+                    {photo.title}
+                  </h3>
+                  <p className="text-white/60 text-xs">{photo.location}</p>
+                </motion.div>
+              </div>
+
+              {/* Number Badge */}
+              <motion.div
+                className="absolute top-2 right-2 w-6 h-6 rounded-full bg-charcoal/80 backdrop-blur-sm flex items-center justify-center z-20"
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  delay: (index % 24) * 0.03 + 0.2,
+                  type: "spring",
+                  stiffness: 400
+                }}
+                whileHover={{ scale: 1.2, backgroundColor: "rgba(212, 175, 55, 0.9)" }}
+              >
+                <span className="text-[10px] font-bold text-white">{index + 1}</span>
+              </motion.div>
+
+              {/* Shimmer Effect on Hover */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                initial={{ x: "-100%" }}
+                animate={{ 
+                  x: hoveredId === photo.id ? "100%" : "-100%" 
+                }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                style={{
+                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)"
+                }}
+              />
             </motion.div>
-          </div>
-        </motion.div>
-      </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -1023,14 +929,21 @@ const ImpressionGallery = ({ photos, onSelectPhoto }: { photos: any[]; onSelectP
 const LibraryOfWork = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: containerRef });
+  const { scrollYProgress } = useScroll();
+  
+  // Smooth spring animation for scroll
+  const scaleProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
-  const filteredPhotos =
-    activeCategory === "All"
-      ? workPhotos
-      : workPhotos.filter((p) => p.category === activeCategory);
+  const filteredPhotos = activeCategory === "All"
+    ? workPhotos
+    : workPhotos.filter((p) => p.category === activeCategory);
+
+  const selectedPhoto = selectedIndex !== null ? filteredPhotos[selectedIndex] : null;
 
   const handlePrev = () => {
     if (selectedIndex !== null && selectedIndex > 0) {
@@ -1043,85 +956,184 @@ const LibraryOfWork = () => {
       setSelectedIndex(selectedIndex + 1);
     }
   };
-  const selectedPhoto = selectedIndex !== null ? filteredPhotos[selectedIndex] : null;
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "Escape") setSelectedIndex(null);
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedIndex]);
 
   return (
-    <div className="min-h-screen bg-cream" ref={containerRef}>
+    <div className="min-h-screen bg-white" ref={containerRef}>
       <Navbar />
 
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
+        style={{ scaleX: scaleProgress }}
+      />
+
       <main className="overflow-hidden">
-        {/* Enhanced Hero Section */}
-        <section className="pt-32 pb-24 lg:pt-44 lg:pb-32 bg-charcoal relative overflow-hidden">
-          {/* Animated background elements */}
-          <motion.div
-            className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-            animate={{ y: [0, 30, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute -bottom-20 -left-20 w-80 h-80 bg-primary/3 rounded-full blur-3xl"
-            animate={{ y: [0, -30, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          />
+        {/* Hero Section with Animated Text */}
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-br from-charcoal via-charcoal/95 to-charcoal overflow-hidden">
+          {/* Animated Background Shapes */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              className="absolute top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                x: [0, 50, 0],
+                y: [0, 30, 0],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute -bottom-32 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                x: [0, -30, 0],
+                y: [0, -50, 0],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 5
+              }}
+            />
+          </div>
 
           <div className="luxury-container relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="max-w-4xl"
-            >
-              <motion.span
+            <div className="max-w-5xl mx-auto text-center">
+              {/* Animated Tag */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2 mb-8"
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <Layers className="w-4 h-4 text-primary" />
+                </motion.div>
+                <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">
+                  Our Portfolio
+                </span>
+                <motion.div
+                  className="w-12 h-px bg-primary/50"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                />
+              </motion.div>
+
+              {/* Main Heading with Stagger Animation */}
+              <div className="mb-8">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+                >
+                  Projects That
+                  <motion.span
+                    className="block text-primary mt-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                  >
+                    Define Excellence
+                  </motion.span>
+                </motion.h1>
+              </div>
+
+              {/* Description */}
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="inline-block text-primary text-xs font-semibold tracking-widest uppercase mb-6 border-l-2 border-primary pl-3"
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="text-white/70 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed"
               >
-                Curated Collection
-              </motion.span>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-5xl lg:text-7xl font-light text-white mb-8 leading-tight"
-              >
-                Our Architectural
-                <br />
-                <motion.span
-                  className="text-primary font-extralight"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                >
-                  Masterpieces
-                </motion.span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-white/60 text-lg max-w-2xl leading-relaxed font-light"
-              >
-                A curated selection of premium construction, interior design, and renovation projects that exemplify our commitment to excellence and architectural innovation.
+                Explore our comprehensive collection of premium construction, renovation, 
+                and design projects that showcase our commitment to quality and innovation.
               </motion.p>
-            </motion.div>
+
+              {/* Animated Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="flex justify-center gap-12 mt-12"
+              >
+                {[
+                  { label: "Projects", value: workPhotos.length },
+                  { label: "Categories", value: categories.length - 1 },
+                  { label: "Years Experience", value: "10+" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      delay: 1 + index * 0.1
+                    }}
+                    className="text-center"
+                  >
+                    <motion.div
+                      className="text-3xl lg:text-4xl font-bold text-primary mb-1"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <div className="text-white/60 text-sm uppercase tracking-wider">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="flex flex-col items-center gap-2"
+            >
+              <span className="text-white/40 text-xs tracking-widest uppercase">Scroll</span>
+              <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
+            </motion.div>
+          </motion.div>
         </section>
 
-        {/* Premium Filter Section */}
-        <section className="py-12 lg:py-16 bg-cream border-b border-slate/10">
+        {/* Filter Section with Pills */}
+        <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-lg border-b border-slate/10 py-6 shadow-sm">
           <div className="luxury-container">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-              {/* Category Filters */}
-              <motion.div
-                className="flex flex-wrap gap-2"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              {/* Category Pills */}
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {categories.map((category, index) => (
                   <motion.button
                     key={category}
@@ -1129,287 +1141,246 @@ const LibraryOfWork = () => {
                       setActiveCategory(category);
                       setSelectedIndex(null);
                     }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.5 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`px-6 py-2.5 rounded-none text-xs font-semibold tracking-wider uppercase transition-all duration-300 border ${
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`relative px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 ${
                       activeCategory === category
-                        ? "bg-charcoal text-primary border-charcoal"
-                        : "bg-transparent text-charcoal border-charcoal/20 hover:border-charcoal/50"
+                        ? "bg-charcoal text-white"
+                        : "bg-slate/5 text-charcoal/60 hover:bg-slate/10"
                     }`}
                   >
-                    {category}
+                    {activeCategory === category && (
+                      <motion.div
+                        layoutId="activeCategory"
+                        className="absolute inset-0 bg-charcoal rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{category}</span>
                   </motion.button>
                 ))}
-              </motion.div>
+              </div>
 
-              {/* Photo Count */}
+              {/* Project Count with Animation */}
               <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+                key={filteredPhotos.length}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-3"
               >
-                <div className="h-px w-8 bg-charcoal/20" />
-                <span className="text-charcoal/60 text-sm font-light tracking-wide">
-                  {filteredPhotos.length} {filteredPhotos.length === 1 ? "project" : "projects"}
+                <Grid3x3 className="w-4 h-4 text-primary" />
+                <span className="text-charcoal/60 text-sm font-medium">
+                  <motion.span
+                    key={filteredPhotos.length}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    className="inline-block font-bold text-charcoal"
+                  >
+                    {filteredPhotos.length}
+                  </motion.span>
+                  {" "}projects
                 </span>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Masonry Gallery Grid */}
-        <section className="py-24 lg:py-40 bg-cream relative overflow-hidden">
-          {/* Background Elements */}
-          <motion.div
-            className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
-            animate={{ y: [0, 30, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          <div className="luxury-container relative z-10">
-            {/* Gallery Header with Stats */}
-            <motion.div
-              className="mb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="flex-1">
-                <motion.span
-                  className="inline-block text-primary text-xs font-bold tracking-widest uppercase mb-6 border-l-2 border-primary pl-3"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                >
-                  Curated Collection
-                </motion.span>
-
-                <motion.h2
-                  className="text-4xl lg:text-5xl font-light text-charcoal mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                >
-                  Premium <span className="text-primary">Projects</span>
-                </motion.h2>
-
-                <motion.p
-                  className="text-charcoal/60 font-light max-w-xl"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  Experience our finest architectural creations and design excellence across every project category
-                </motion.p>
-              </div>
-
-              {/* Stats */}
+        {/* Gallery Section */}
+        <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-cream/30">
+          <div className="luxury-container">
+            <AnimatePresence mode="wait">
               <motion.div
-                className="flex gap-8"
+                key={activeCategory}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
               >
-                <div className="text-center">
-                  <motion.p
-                    className="text-3xl lg:text-4xl font-bold text-primary"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-                  >
-                    {filteredPhotos.length}+
-                  </motion.p>
-                  <p className="text-charcoal/60 text-xs font-light tracking-widest uppercase">Projects</p>
-                </div>
-
-                <div className="w-px bg-charcoal/10" />
-
-                <div className="text-center">
-                  <motion.p
-                    className="text-3xl lg:text-4xl font-bold text-primary"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-                  >
-                    100%
-                  </motion.p>
-                  <p className="text-charcoal/60 text-xs font-light tracking-widest uppercase">Quality</p>
-                </div>
+                <AnimatedGridGallery 
+                  photos={filteredPhotos} 
+                  onSelectPhoto={setSelectedIndex} 
+                />
               </motion.div>
-            </motion.div>
-
-            {/* Impressive Gallery */}
-            <ImpressionGallery photos={filteredPhotos} onSelectPhoto={setSelectedIndex} />
+            </AnimatePresence>
           </div>
         </section>
 
-        {/* Refined CTA Section */}
+        {/* CTA Section */}
         <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
-          <motion.div
-            className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-            animate={{ y: [0, -40, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
+          {/* Animated Background */}
+          <div className="absolute inset-0">
+            <motion.div
+              className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
 
           <div className="luxury-container relative z-10">
-            <motion.div
-              className="max-w-3xl text-center mx-auto"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h2
-                className="text-4xl lg:text-5xl font-light text-white mb-6 leading-tight"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.8 }}
-              >
-                Begin Your <span className="text-primary">Project</span> Today
-              </motion.h2>
-
-              <motion.p
-                className="text-white/50 text-lg font-light mb-10 leading-relaxed"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                Transform your vision into architectural excellence. Our team of experts is ready to deliver premium construction and design solutions.
-              </motion.p>
-
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
-                className="flex flex-col sm:flex-row justify-center gap-4"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.8 }}
+                transition={{ duration: 0.8 }}
               >
-                <Button variant="gold" size="lg" asChild className="rounded-none">
-                  <Link to="/contact">Schedule Consultation</Link>
-                </Button>
-                <Button variant="goldOutline" size="lg" asChild className="rounded-none">
-                  <Link to="/projects">Explore More</Link>
-                </Button>
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Ready to Start Your
+                  <span className="block text-primary mt-2">Dream Project?</span>
+                </h2>
+                
+                <p className="text-white/60 text-lg mb-10 max-w-2xl mx-auto">
+                  Let's transform your vision into reality with our expert team 
+                  and proven track record of excellence.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button variant="gold" size="lg" asChild className="rounded-full">
+                      <Link to="/contact">
+                        Get Started
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button variant="goldOutline" size="lg" asChild className="rounded-full">
+                      <Link to="/projects">View All Projects</Link>
+                    </Button>
+                  </motion.div>
+                </div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </main>
 
-      {/* Premium Lightbox */}
+      {/* Enhanced Lightbox Modal */}
       <AnimatePresence>
         {selectedPhoto && selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-50 bg-charcoal/98 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
             onClick={() => setSelectedIndex(null)}
           >
-            {/* Navigation Buttons */}
+            {/* Close Button */}
             <motion.button
-              onClick={() => setSelectedIndex(null)}
-              className="absolute top-6 right-6 z-20 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.5 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={() => setSelectedIndex(null)}
+              className="fixed top-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-colors z-50"
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
             >
               <X className="w-5 h-5" />
             </motion.button>
 
+            {/* Navigation Buttons */}
             {selectedIndex > 0 && (
               <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
                 onClick={(e) => {
                   e.stopPropagation();
                   handlePrev();
                 }}
-                className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
-                whileHover={{ scale: 1.1, x: -3 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                className="fixed left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-colors z-50"
+                whileHover={{ scale: 1.1, x: -5 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-6 h-6" />
               </motion.button>
             )}
 
             {selectedIndex < filteredPhotos.length - 1 && (
               <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleNext();
                 }}
-                className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
-                whileHover={{ scale: 1.1, x: 3 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                className="fixed right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-colors z-50"
+                whileHover={{ scale: 1.1, x: 5 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-6 h-6" />
               </motion.button>
             )}
 
             {/* Image Container */}
-            <motion.div
-              key={selectedPhoto.id}
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 30 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="w-full max-w-5xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <motion.img
-                src={selectedPhoto.image}
-                alt={selectedPhoto.title}
-                className="w-full h-auto max-h-[90vh] object-contain"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.15 }}
-              />
-
-              {/* Image Info */}
+            <div className="fixed inset-0 flex items-center justify-center p-4 md:p-12">
               <motion.div
-                className="mt-8 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                key={selectedPhoto.id}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="relative max-w-6xl w-full"
+                onClick={(e) => e.stopPropagation()}
               >
-                <h3 className="text-xl text-white font-light mb-3">
-                  {selectedPhoto.title}
-                </h3>
-                <div className="flex items-center justify-center gap-4">
-                  <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-                    {selectedPhoto.category}
-                  </span>
-                  <div className="h-px w-4 bg-white/20" />
-                  <span className="text-white/50 text-sm font-light">
-                    {selectedPhoto.location}
-                  </span>
-                </div>
-                <p className="text-white/40 text-xs mt-4 tracking-wider">
-                  {selectedIndex + 1} OF {filteredPhotos.length}
-                </p>
+                {/* Image */}
+                <motion.img
+                  src={selectedPhoto.image}
+                  alt={selectedPhoto.title}
+                  className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+                  layoutId={`image-${selectedPhoto.id}`}
+                />
+
+                {/* Info Panel */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="mt-6 text-center"
+                >
+                  <div className="inline-flex items-center gap-3 mb-3">
+                    <span className="text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 bg-primary/10 rounded-full">
+                      {selectedPhoto.category}
+                    </span>
+                    <span className="text-white/40 text-xs">•</span>
+                    <span className="text-white/60 text-sm">{selectedPhoto.location}</span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    {selectedPhoto.title}
+                  </h3>
+
+                  <div className="flex items-center justify-center gap-2 text-white/40 text-sm">
+                    <span>{selectedIndex + 1}</span>
+                    <span>/</span>
+                    <span>{filteredPhotos.length}</span>
+                  </div>
+                </motion.div>
               </motion.div>
+            </div>
+
+            {/* Keyboard Hints */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-4 text-white/40 text-xs"
+            >
+              <span>← → Navigate</span>
+              <span>•</span>
+              <span>ESC Close</span>
             </motion.div>
           </motion.div>
         )}
