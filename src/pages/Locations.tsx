@@ -1,237 +1,264 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 
-const locations = [
-  {
-    city: "Kuala Lumpur",
-    description: "Our headquarters in the heart of Malaysia's capital city.",
-    address: "Level 15, Tower A, KLCC, 50088 Kuala Lumpur",
-    phone: "+60 3-2345 6789",
-    services: ["Building Construction", "Interior Design", "Project Management"],
-  },
-  {
-    city: "Selangor",
-    description: "Serving the greater Klang Valley with premium construction services.",
-    address: "Unit 8-1, Menara Centara, Petaling Jaya, 46100 Selangor",
-    phone: "+60 3-7890 1234",
-    services: ["Residential Construction", "Commercial Fit-out", "Renovation"],
-  },
-  {
-    city: "Penang",
-    description: "Northern region office specializing in heritage and modern builds.",
-    address: "Level 10, Gurney Plaza, George Town, 10250 Penang",
-    phone: "+60 4-234 5678",
-    services: ["Heritage Restoration", "Villa Construction", "Interior Design"],
-  },
-  {
-    city: "Johor",
-    description: "Southern hub serving Johor Bahru and surrounding areas.",
-    address: "Suite 5-2, Menara JB, 80000 Johor Bahru",
-    phone: "+60 7-345 6789",
-    services: ["Industrial Construction", "Commercial Projects", "Turnkey Solutions"],
-  },
-];
-
 const Locations = () => {
+  const contactInfo = {
+    address: "No. 510-1A.1, Jalan Sultan Azlan Shah, Batu 3, Jalan Ipoh, 51200 Kuala Lumpur",
+    phone: "+60-16 9657705",
+    email: "mitrathina84@gmail.com",
+    hours: "Mon - Sat: 9:00 AM - 6:00 PM",
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-cream">
       <Navbar />
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-charcoal relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal to-charcoal-light opacity-80" />
+        <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-br from-charcoal via-charcoal-light to-primary relative overflow-hidden">
+          {/* Animated background elements */}
+          <motion.div
+            className="absolute top-20 left-10 w-72 h-72 border border-primary/20 rounded-full"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-96 h-96 border border-gold/10 rounded-full"
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, -90, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
           <div className="luxury-container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-3xl"
+              className="text-center max-w-3xl mx-auto"
             >
-              <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-4">
-                Our Locations
-              </span>
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Serving
-                <br />
-                <span className="text-primary">All of Malaysia</span>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-block mb-6"
+              >
+                <MapPin className="w-20 h-20 text-primary" strokeWidth={1} />
+              </motion.div>
+              <h1 className="text-5xl lg:text-7xl font-light text-white mb-6 tracking-tight">
+                Our Location
               </h1>
-              <p className="text-white/70 text-lg">
-                With offices in key cities across Malaysia, we bring premium construction 
-                and design services closer to you.
+              <div className="w-24 h-px bg-primary/50 mx-auto mb-6" />
+              <p className="text-white/80 text-lg font-light">
+                Visit us at our headquarters in Kuala Lumpur
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Map Section */}
-        <section className="py-20 lg:py-28 bg-white">
+        {/* Map & Info Section */}
+        <section className="py-20 lg:py-32 bg-white">
           <div className="luxury-container">
-            <div className="bg-charcoal/5 rounded-lg overflow-hidden mb-16">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4078740.7025689585!2d99.41721979999999!3d4.140634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3034d3975f6730af%3A0x745969328211cd8!2sMalaysia!5e0!3m2!1sen!2smy!4v1699999999999!5m2!1sen!2smy"
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mitrathina locations in Malaysia"
-              />
-            </div>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative group"
+              >
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-gold/5 to-primary/10 rounded-2xl blur-xl group-hover:from-primary/20 group-hover:via-gold/10 group-hover:to-primary/20 transition-all duration-500" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary/20">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.010964479836!2d101.678424!3d3.1823244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49128e186d89%3A0x8948f9ea71470f39!2sMITRATHINA%20BUILDERS%20SDN%20BHD!5e0!3m2!1sen!2smy!4v1700000000001!5m2!1sen!2smy"
+                    width="100%"
+                    height="600"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Mitrathina Builders Location"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Locations Grid */}
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-              {locations.map((location, index) => (
+              {/* Contact Info */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <div>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-4xl lg:text-5xl font-light text-charcoal mb-4 tracking-tight"
+                  >
+                    Kuala Lumpur
+                  </motion.h2>
+                  <div className="w-16 h-px bg-primary mb-8" />
+                  <p className="text-slate text-lg font-light leading-relaxed">
+                    Our headquarters in the heart of Malaysia's capital city, where excellence meets innovation.
+                  </p>
+                </div>
+
+                {/* Contact Cards */}
+                <div className="space-y-4">
+                  {/* Address */}
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="group flex gap-6 p-6 bg-cream border border-primary/20 rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <MapPin className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                        Address
+                      </h3>
+                      <p className="text-charcoal font-light leading-relaxed">
+                        {contactInfo.address}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Phone */}
+                  <motion.a
+                    href={`tel:${contactInfo.phone}`}
+                    whileHover={{ x: 10 }}
+                    className="group flex gap-6 p-6 bg-cream border border-primary/20 rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Phone className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                        Phone
+                      </h3>
+                      <p className="text-charcoal font-light text-lg">
+                        {contactInfo.phone}
+                      </p>
+                    </div>
+                  </motion.a>
+
+                  {/* Email */}
+                  <motion.a
+                    href={`mailto:${contactInfo.email}`}
+                    whileHover={{ x: 10 }}
+                    className="group flex gap-6 p-6 bg-cream border border-primary/20 rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Mail className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                        Email
+                      </h3>
+                      <p className="text-charcoal font-light text-lg">
+                        {contactInfo.email}
+                      </p>
+                    </div>
+                  </motion.a>
+
+                  {/* Hours */}
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="group flex gap-6 p-6 bg-cream border border-primary/20 rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Clock className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                        Business Hours
+                      </h3>
+                      <p className="text-charcoal font-light text-lg">
+                        {contactInfo.hours}
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* CTA Button */}
                 <motion.div
-                  key={location.city}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-cream p-8 rounded-lg hover:shadow-lg transition-shadow duration-300"
+                  transition={{ delay: 0.4 }}
+                  className="pt-6"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-charcoal mb-2">
-                        {location.city}
-                      </h3>
-                      <p className="text-slate text-sm">{location.description}</p>
-                    </div>
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 mb-6">
-                    <p className="text-slate-light text-sm flex items-start gap-2">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                      {location.address}
-                    </p>
-                    <p className="text-slate-light text-sm flex items-center gap-2">
-                      <Phone className="w-4 h-4 flex-shrink-0" />
-                      <a href={`tel:${location.phone}`} className="hover:text-primary transition-colors">
-                        {location.phone}
-                      </a>
-                    </p>
-                  </div>
-
-                  <div className="mb-6">
-                    <p className="text-xs text-slate-light uppercase tracking-wider mb-2">
-                      Services Available
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {location.services.map((service) => (
-                        <span
-                          key={service}
-                          className="px-3 py-1 bg-white rounded-full text-xs text-charcoal"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Button variant="goldOutline" size="sm" asChild>
-                    <Link to="/contact" className="gap-2">
-                      Contact This Office
-                      <ArrowRight className="w-4 h-4" />
+                  <Button
+                    variant="gold"
+                    size="lg"
+                    asChild
+                    className="w-full rounded-xl py-6 text-lg font-light"
+                  >
+                    <Link to="/contact" className="gap-3">
+                      Get In Touch
+                      <ArrowRight className="w-5 h-5" strokeWidth={1.5} />
                     </Link>
                   </Button>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Coverage Section */}
-        <section className="py-20 lg:py-28 bg-charcoal">
-          <div className="luxury-container">
-            <div className="text-center max-w-3xl mx-auto">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-4"
-              >
-                Nationwide Coverage
-              </motion.span>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-3xl lg:text-4xl font-bold text-white mb-6"
-              >
-                Beyond Our Office Locations
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-white/60 mb-8"
-              >
-                While our main offices are in Kuala Lumpur, Selangor, Penang, and Johor, 
-                we serve clients throughout Malaysia. Contact us to discuss your project 
-                anywhere in the country.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap justify-center gap-4"
-              >
-                {["Sabah", "Sarawak", "Melaka", "Pahang", "Perak", "Kedah", "Negeri Sembilan"].map((state) => (
-                  <span
-                    key={state}
-                    className="px-4 py-2 border border-white/20 rounded-full text-white/60 text-sm"
-                  >
-                    {state}
-                  </span>
-                ))}
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 lg:py-28 bg-cream">
-          <div className="luxury-container text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl lg:text-4xl font-bold text-charcoal mb-6"
-            >
-              Find Your Nearest Office
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-slate mb-8 max-w-2xl mx-auto"
-            >
-              Get in touch with our team to discuss your project requirements.
-            </motion.p>
+        {/* Services Strip */}
+        <section className="py-16 bg-black">
+          <div className="luxury-container">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              className="text-center"
             >
-              <Button variant="gold" size="xl" asChild>
-                <Link to="/contact" className="gap-2">
-                  Contact Us
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
+              <h3 className="text-white/40 text-sm font-semibold uppercase tracking-wider mb-6">
+                Our Services
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {["Building Construction", "Interior Design", "Project Management", "Renovation & Remodeling", "Architectural Design", "Turnkey Solutions"].map((service, index) => (
+                  <motion.span
+                    key={service}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="px-6 py-3 border border-white/20 text-white font-light rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
+                  >
+                    {service}
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>

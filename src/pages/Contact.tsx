@@ -18,10 +18,6 @@ const serviceTypes = [
 
 const cities = [
   "Kuala Lumpur",
-  "Selangor",
-  "Penang",
-  "Johor",
-  "Other",
 ];
 
 const Contact = () => {
@@ -30,7 +26,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    city: "",
+    city: "Kuala Lumpur",
     serviceType: "",
     message: "",
   });
@@ -117,9 +113,13 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Visit Us</h3>
                       <p className="text-slate-light text-sm">
-                        Faber Heights Condominium<br />
-                        Block A, 78-13-4, Jalan Desa Utama<br />
-                        Taman Desa, 58100 - Kuala Lumpur, Malaysia
+                        MITRATHINA BUILDERS<br />
+                        No. 510-1A.1,<br />
+                        Jalan Sultan Azlan Shah,<br />
+                        Batu 3, Jalan Ipoh,<br />
+                        51200 Kuala Lumpur,<br />
+                        Wilayah Persekutuan Kuala Lumpur,<br />
+                        Malaysia
                       </p>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Call Us</h3>
                       <a href="tel:+60169657705" className="text-slate-light text-sm hover:text-primary transition-colors">
-                        +60 16-965 7705
+                        +60-16 9657705
                       </a>
                     </div>
                   </div>
@@ -142,8 +142,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Email Us</h3>
-                      <a href="mailto:info@mitrathina.com" className="text-slate-light text-sm hover:text-primary transition-colors">
-                        info@mitrathina.com
+                      <a href="mailto:mitrathina84@gmail.com" className="text-slate-light text-sm hover:text-primary transition-colors">
+                        mitrathina84@gmail.com
                       </a>
                     </div>
                   </div>
@@ -255,12 +255,11 @@ const Contact = () => {
                           required
                           className="w-full px-4 py-3 bg-cream border border-transparent rounded-md focus:outline-none focus:border-primary transition-colors appearance-none"
                         >
-                          <option value="">Select city</option>
-                          {cities.map((city) => (
-                            <option key={city} value={city}>
-                              {city}
-                            </option>
-                          ))}
+                            {cities.map((city) => (
+                              <option key={city} value={city}>
+                                {city}
+                              </option>
+                            ))}
                         </select>
                       </div>
                     </div>
@@ -323,7 +322,7 @@ const Contact = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Mitrathina office location"
+            title="Mitrathina Builders office location"
           />
         </section>
       </main>

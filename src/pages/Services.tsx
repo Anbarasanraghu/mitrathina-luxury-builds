@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Building2,
+    imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
     title: "Building Construction",
     description: "Premium residential and commercial construction with uncompromising quality standards.",
     features: [
@@ -28,6 +29,7 @@ const services = [
   },
   {
     icon: Palette,
+    imageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
     title: "Interior Design",
     description: "Sophisticated interior solutions that blend aesthetics with functionality.",
     features: [
@@ -39,6 +41,7 @@ const services = [
   },
   {
     icon: Hammer,
+    imageUrl: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80",
     title: "Renovation & Remodeling",
     description: "Transform existing spaces into modern masterpieces with expert renovation.",
     features: [
@@ -50,6 +53,7 @@ const services = [
   },
   {
     icon: PenTool,
+    imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
     title: "Architectural Design",
     description: "Innovative architectural concepts that push the boundaries of design.",
     features: [
@@ -61,6 +65,7 @@ const services = [
   },
   {
     icon: ClipboardList,
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
     title: "Project Management",
     description: "End-to-end project oversight ensuring timely and budget-conscious delivery.",
     features: [
@@ -72,6 +77,7 @@ const services = [
   },
   {
     icon: Key,
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
     title: "Turnkey Solutions",
     description: "Complete design-build solutions from concept to key handover.",
     features: [
@@ -156,8 +162,12 @@ const Services = () => {
                     </div>
                   </div>
                   <div className={`hidden lg:block ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
-                    <div className="aspect-square bg-charcoal/5 rounded-lg flex items-center justify-center">
-                      <service.icon className="w-32 h-32 text-primary/20" />
+                    <div className="aspect-square bg-charcoal/5 rounded-lg overflow-hidden">
+                      <img 
+                        src={service.imageUrl} 
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </motion.div>
