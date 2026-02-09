@@ -8,7 +8,7 @@ const testimonials = [
     name: "Tan Wei Ming",
     role: "Property Developer",
     company: "Sunrise Properties",
-    content: "Mitrathina exceeded all our expectations. Their attention to detail and commitment to quality transformed our vision into a stunning reality. The project was delivered on time and within budget.",
+    content: "Mitrathina Builders exceeded all our expectations. Their attention to detail and commitment to quality transformed our vision into a stunning reality. The project was delivered on time and within budget.",
     rating: 5,
   },
   {
@@ -16,7 +16,7 @@ const testimonials = [
     name: "Sarah Abdullah",
     role: "Homeowner",
     company: "Private Residence",
-    content: "Working with Mitrathina on our dream home was an incredible experience. Their team understood exactly what we wanted and brought it to life with exceptional craftsmanship.",
+    content: "Working with Mitrathina Builders on our dream home was an incredible experience. Their team understood exactly what we wanted and brought it to life with exceptional craftsmanship.",
     rating: 5,
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
     name: "David Lee",
     role: "CEO",
     company: "Tech Innovations Sdn Bhd",
-    content: "Our new corporate headquarters is a testament to Mitrathina's expertise. The modern design perfectly reflects our brand identity while maximizing functionality for our team.",
+    content: "Our new corporate headquarters is a testament to Mitrathina Builders' expertise. The modern design perfectly reflects our brand identity while maximizing functionality for our team.",
     rating: 5,
   },
 ];
@@ -72,7 +72,7 @@ export const TestimonialsSection = () => {
               className="text-white/60 mb-8"
             >
               Don't just take our word for it. Hear from our satisfied clients 
-              who have experienced the Mitrathina difference.
+              who have experienced the Mitrathina Builders difference.
             </motion.p>
 
             {/* Navigation */}

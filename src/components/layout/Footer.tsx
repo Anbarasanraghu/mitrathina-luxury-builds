@@ -35,11 +35,11 @@ export const Footer = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
               <span className="text-2xl font-bold tracking-tight">
-                MITRA<span className="text-primary">THINA</span>
+                MITRATHINA <span className="text-primary">BUILDERS</span>
               </span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
-              Premium construction and interior design solutions across Malaysia. 
+              Mitrathina Builders: Premium construction and interior design solutions across Malaysia. 
               Building spaces that inspire for over 15 years.
             </p>
             <div className="flex gap-4">
@@ -99,38 +99,38 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-white/60 text-sm">
-                  Faber Heights Condominium<br />
-                  Block A, 78-13-4, Jalan Desa Utama<br />
-                  Taman Desa, 58100 - Kuala Lumpur, Malaysia
+                  MITRATHINA BUILDERS<br />
+                  No. 510-1A.1,<br />
+                  Jalan Sultan Azlan Shah,<br />
+                  Batu 3, Jalan Ipoh,<br />
+                  51200 Kuala Lumpur,<br />
+                  Wilayah Persekutuan Kuala Lumpur,<br />
+                  Malaysia
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="tel:+60169657705" className="text-white/60 hover:text-primary transition-colors text-sm">
-                  +60 16-965 7705
+                  +60-16 9657705
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@mitrathina.com" className="text-white/60 hover:text-primary transition-colors text-sm">
-                  info@mitrathina.com
+                <a href="mailto:mitrathina84@gmail.com" className="text-white/60 hover:text-primary transition-colors text-sm">
+                  mitrathina84@gmail.com
                 </a>
               </li>
             </ul>
 
-            {/* Locations */}
+            {/* Location */}
             <div className="mt-6">
-              <h5 className="text-sm font-semibold mb-3 text-white/80">Locations</h5>
-              <div className="flex flex-wrap gap-2">
-                {locations.map((location) => (
-                  <span
-                    key={location}
-                    className="px-3 py-1 bg-white/10 rounded-full text-xs text-white/60"
-                  >
-                    {location}
-                  </span>
-                ))}
-              </div>
+              <h5 className="text-sm font-semibold mb-3 text-white/80">Location</h5>
+              <Link
+                to="/locations"
+                className="inline-block px-4 py-2 bg-primary text-charcoal rounded-full text-xs font-semibold shadow hover:bg-white/90 transition-colors"
+              >
+                Kuala Lumpur
+              </Link>
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ export const Footer = () => {
       <div className="border-t border-white/10">
         <div className="luxury-container py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Mitrathina. All rights reserved.
+            © {new Date().getFullYear()} Mitrathina Builders. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-white/40 hover:text-white/60 text-sm transition-colors">

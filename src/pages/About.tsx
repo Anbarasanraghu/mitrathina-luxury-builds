@@ -29,7 +29,7 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2008", title: "Founded", description: "Mitrathina established in Kuala Lumpur" },
+  { year: "2008", title: "Founded", description: "Mitrathina Builders established in Kuala Lumpur" },
   { year: "2012", title: "Expansion", description: "Opened offices in Selangor and Penang" },
   { year: "2016", title: "100 Projects", description: "Completed our 100th major project" },
   { year: "2020", title: "Award Winning", description: "Received CIDB Excellence Award" },
@@ -61,7 +61,7 @@ const About = () => {
                 <span className="text-primary">Since 2008</span>
               </h1>
               <p className="text-white/70 text-lg">
-                Mitrathina is Malaysia's premier construction and interior design company, 
+                Mitrathina Builders is Malaysia's premier construction and interior design company, 
                 dedicated to creating exceptional spaces that inspire and endure.
               </p>
             </motion.div>
@@ -82,14 +82,14 @@ const About = () => {
                   Our Story
                 </h2>
                 <p className="text-slate mb-4">
-                  Founded in 2008, Mitrathina began as a small construction firm with a big vision: 
+                  Founded in 2008, Mitrathina Builders began as a small construction firm with a big vision: 
                   to transform the Malaysian construction landscape through excellence, innovation, 
                   and unwavering commitment to quality.
                 </p>
                 <p className="text-slate mb-4">
                   Over 15 years later, we have grown into one of Malaysia's most trusted names in 
                   construction and interior design, completing over 350 projects across residential, 
-                  commercial, and institutional sectors.
+                  commercial, and institutional sectors as Mitrathina Builders.
                 </p>
                 <p className="text-slate">
                   Our success is built on a foundation of skilled craftsmanship, innovative design thinking, 

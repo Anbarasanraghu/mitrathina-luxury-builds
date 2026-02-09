@@ -47,9 +47,16 @@ export const Navbar = () => {
         <div className="luxury-container">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src="/mitrathina_logo.ico"
+                alt="Mitrathina Logo"
+                className="w-12 h-12 rounded-full bg-white p-1 border-2 border-primary shadow-lg transition-transform group-hover:scale-110"
+                style={{ objectFit: 'contain', backgroundColor: '#fff' }}
+                loading="lazy"
+              />
               <span className="text-2xl font-bold tracking-tight text-white">
-                MITRA<span className="text-primary">THINA</span>
+                MITRATHINA <span className="text-primary">BUILDERS</span>
               </span>
             </Link>
 
