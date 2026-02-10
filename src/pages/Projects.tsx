@@ -11,8 +11,8 @@ const categories = [
   "All",
   "Port Klang",
   "Rawang",
-  "Subang",
-  "Subway Office",
+  "Subang airport",
+  "Sunway Office",
   "Brickfields",
 ];
 
@@ -38,8 +38,8 @@ Object.entries(imagesModules).forEach(([path, url]) => {
 const folderToCategory: Record<string, string> = {
   "Port klang": "Port Klang",
   Rawang: "Rawang",
-  "Subang airport": "Subang",
-  "Sybway office": "Subway Office",
+  "Subang airport": "Subang airport",
+  "Sunway office": "Sunway Office",
   "Brickfields kl": "Brickfields",
 };
 
