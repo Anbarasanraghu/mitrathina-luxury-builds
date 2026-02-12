@@ -175,7 +175,7 @@ const InteriorDesign = () => {
             viewport={{ once: true }}
           >
             {[
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.55 PM.jpeg",
+              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.55 PM.jpg",
               "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM.jpeg",
               "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM (1).jpeg",
               "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM (2).jpeg",
