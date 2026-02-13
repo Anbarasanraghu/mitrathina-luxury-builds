@@ -175,21 +175,21 @@ const InteriorDesign = () => {
             viewport={{ once: true }}
           >
             {[
-              "/src/assets/Interior Design/1.webp",
-              "/src/assets/Interior Design/10.jpeg",
-              "/src/assets/Interior Design/11.jpeg",
-              "/src/assets/Interior Design/12.jpeg",
-              "/src/assets/Interior Design/13.jpeg",
-              "/src/assets/Interior Design/14.jpeg",
-              "/src/assets/Interior Design/15.jpg",
-              "/src/assets/Interior Design/2.jpg",
-              "/src/assets/Interior Design/3.jpg",
-              "/src/assets/Interior Design/4.webp",
-              "/src/assets/Interior Design/5.webp",
-              "/src/assets/Interior Design/6.webp",
-              "/src/assets/Interior Design/7.jpg",
-              "/src/assets/Interior Design/8.jpg",
-              "/src/assets/Interior Design/9.webp",
+              "/Interior/1.webp",
+              "/Interior/10.jpeg",
+              "/Interior/11.jpeg",
+              "/Interior/12.jpeg",
+              "/Interior/13.jpeg",
+              "/Interior/14.jpeg",
+              "/Interior/15.jpg",
+              "/Interior/2.jpg",
+              "/Interior/3.jpg",
+              "/Interior/4.webp",
+              "/Interior/5.webp",
+              "/Interior/6.webp",
+              "/Interior/7.jpg",
+              "/Interior/8.jpg",
+              "/Interior/9.webp",
             ].map((image, index) => (
               <motion.div
                 key={index}
