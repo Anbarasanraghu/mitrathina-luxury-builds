@@ -175,21 +175,21 @@ const InteriorDesign = () => {
             viewport={{ once: true }}
           >
             {[
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.55 PM.jpg",
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM.jpeg",
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM (1).jpeg",
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.56 PM (2).jpeg",
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.57 PM.jpeg",
-              "/src/assets/Interior Design/WhatsApp Image 2026-02-12 at 9.28.57 PM (1).jpeg",
-              "/src/assets/Interior Design/Seating Corner.jpg",
-              "/src/assets/Interior Design/office-interior.jpg",
-              "/src/assets/Interior Design/HOUSEGAL6.3a0c656f594d0a065427.webp",
-              "/src/assets/Interior Design/1-1.webp",
-              "/src/assets/Interior Design/170760.jpg",
-              "/src/assets/Interior Design/6g6a9015_1200xx6720-3780-0-350.jpg",
-              "/src/assets/Interior Design/bg1.webp",            
-              "/src/assets/Interior Design/interior-design-construction-office-raw-materials.webp",
-              "/src/assets/Interior Design/rsw_776h_388cg_true-35.webp",
+              "/src/assets/Interior Design/1.webp",
+              "/src/assets/Interior Design/10.jpeg",
+              "/src/assets/Interior Design/11.jpeg",
+              "/src/assets/Interior Design/12.jpeg",
+              "/src/assets/Interior Design/13.jpeg",
+              "/src/assets/Interior Design/14.jpeg",
+              "/src/assets/Interior Design/15.jpg",
+              "/src/assets/Interior Design/2.jpg",
+              "/src/assets/Interior Design/3.jpg",
+              "/src/assets/Interior Design/4.webp",
+              "/src/assets/Interior Design/5.webp",
+              "/src/assets/Interior Design/6.webp",
+              "/src/assets/Interior Design/7.jpg",
+              "/src/assets/Interior Design/8.jpg",
+              "/src/assets/Interior Design/9.webp",
             ].map((image, index) => (
               <motion.div
                 key={index}
