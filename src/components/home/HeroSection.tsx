@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -35,17 +35,6 @@ export const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 luxury-container text-center py-20 lg:py-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6"
-        >
-          <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium tracking-wider uppercase">
-            Premium Construction & Interior Design
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,6 +73,20 @@ export const HeroSection = () => {
               <Play className="w-5 h-5" />
               View Our Projects
             </Link>
+          </Button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-10"
+        >
+          <Button variant="gold" size="lg" asChild className="gap-2">
+            <a href="/portfolio.pdf" download="Mitrathina_Portfolio.pdf">
+              <Download className="w-5 h-5" />
+              Download Our Portfolio
+            </a>
           </Button>
         </motion.div>
 

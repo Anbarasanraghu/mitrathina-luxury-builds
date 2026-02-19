@@ -48,7 +48,7 @@ export const Navbar = () => {
         <div className="luxury-container">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
               <img
                 src="/mitrathina_logo.ico"
                 alt="Mitrathina Logo"
@@ -61,13 +61,13 @@ export const Navbar = () => {
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 transform -translate-x-1/2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium transition-colors duration-300 gold-underline ${
+                  className={`text-sm font-medium transition-colors duration-300 gold-underline whitespace-nowrap ${
                     location.pathname === link.path
                       ? "text-primary"
                       : "text-white/80 hover:text-white"
@@ -79,7 +79,7 @@ export const Navbar = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
               <a href="tel:+60169657705" className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">+60 16-965 7705</span>
