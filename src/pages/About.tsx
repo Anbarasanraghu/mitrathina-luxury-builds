@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Target, Eye, Award, Users, Shield, Clock, ArrowRight } from "lucide-react";
+import { Target, Eye, Award, Users, Shield, Clock, ArrowRight, Download } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -46,25 +46,46 @@ const About = () => {
         <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-charcoal relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal to-charcoal-light opacity-80" />
           <div className="luxury-container relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-3xl"
-            >
-              <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-4">
-                About Us
-              </span>
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Building Excellence
-                <br />
-                <span className="text-primary">Since 2008</span>
-              </h1>
-              <p className="text-white/70 text-lg">
-                Mitrathina Builders is Malaysia's premier construction and interior design company, 
-                dedicated to creating exceptional spaces that inspire and endure.
-              </p>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-4">
+                  About Us
+                </span>
+                <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+                  Building Excellence
+                  <br />
+                  <span className="text-primary">Since 2008</span>
+                </h1>
+                <p className="text-white/70 text-lg">
+                  Mitrathina Builders is Malaysia's premier construction and interior design company, 
+                  dedicated to creating exceptional spaces that inspire and endure.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex flex-col items-center lg:items-center space-y-6"
+              >
+                <img 
+                  src="/mitrathina_logo.ico" 
+                  alt="Mitrathina Builders Logo" 
+                  className="w-32 h-32 lg:w-48 lg:h-48 object-contain"
+                />
+                
+                <Button variant="gold" size="lg" asChild className="gap-2">
+                  <a href="/portfolio.pdf" download="Mitrathina_Portfolio.pdf">
+                    <Download className="w-5 h-5" />
+                    Download Our Portfolio
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </section>
 
