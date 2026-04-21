@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Services", path: "/services" },
   { name: "Projects", path: "/projects" },
   { name: "Locations", path: "/locations" },
+  { name: "Statue", path: "/statue" },
   { name: "Library", path: "/library" },
   { name: "Interior Design", path: "/interior-design" },
   { name: "Certifications", path: "/certifications" },
@@ -46,7 +47,7 @@ export const Navbar = () => {
         }`}
       >
         <div className="luxury-container">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
               <img
@@ -62,7 +63,7 @@ export const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation - Centered */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 transform -translate-x-1/2">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
