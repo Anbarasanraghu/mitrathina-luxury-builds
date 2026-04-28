@@ -23,7 +23,7 @@ const categories = [
 // Auto-import project images from `src/assets/<folder>/*`
 const imagesModules = import.meta.glob(
   "../assets/*/*.{jpg,jpeg,png,webp}",
-  { as: "url", eager: true }
+  { query: "?url", import: "default", eager: true }
 ) as Record<string, any>;
 
 const folderMap: Record<string, string[]> = {};

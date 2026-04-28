@@ -49,7 +49,7 @@ const saveUploadsToStorage = (uploads: GalleryImage[]): void => {
 
 const statueImageModules = import.meta.glob(
   "../assets/statue/**/*.{jpg,jpeg,png,webp}",
-  { as: "url", eager: true }
+  { query: "?url", import: "default", eager: true }
 ) as Record<string, string>;
 
 const statueGallery = Object.entries(statueImageModules)
