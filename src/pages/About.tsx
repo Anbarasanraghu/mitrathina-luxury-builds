@@ -79,7 +79,7 @@ const About = () => {
                 />
                 
                 <Button variant="gold" size="lg" asChild className="gap-2">
-                  <a href="/portfolio.pdf" download="Mitrathina_Portfolio.pdf">
+                  <a href="/Mitrathina_Portfolio (2).pdf" download="Mitrathina_Portfolio.pdf">
                     <Download className="w-5 h-5" />
                     Download Our Portfolio
                   </a>
