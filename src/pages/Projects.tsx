@@ -28,11 +28,13 @@ const imagesModules = import.meta.glob(
 
 const folderMap: Record<string, string[]> = {};
 Object.entries(imagesModules).forEach(([path, url]) => {
+  // Only include valid string URLs
+  if (typeof url !== "string") return;
   // path looks like "../assets/Port klang/filename.jpg"
   const parts = path.split("/");
   const folder = parts[2];
   folderMap[folder] = folderMap[folder] || [];
-  folderMap[folder].push(url as string);
+  folderMap[folder].push(url);
 });
 
 const folderToCategory: Record<string, string> = {

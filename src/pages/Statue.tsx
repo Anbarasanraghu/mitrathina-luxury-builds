@@ -53,12 +53,16 @@ const statueImageModules = import.meta.glob(
 ) as Record<string, string>;
 
 const statueGallery = Object.entries(statueImageModules)
+  .filter(([, url]) => typeof url === "string" && url.length > 0)
   .map(([path, url]) => {
     const segments = path.split("/");
     const place = segments[segments.length - 2];
-    return { id: path, src: url, place };
+    return { id: path, src: url as string, place };
   })
-  .sort((a, b) => a.place.localeCompare(b.place) || a.src.localeCompare(b.src));
+  .sort((a, b) => {
+    const placeCompare = (a.place || "").localeCompare(b.place || "");
+    return placeCompare !== 0 ? placeCompare : (a.src || "").localeCompare(b.src || "");
+  });
 
 const statuePlaces = [
   "Seremban",
