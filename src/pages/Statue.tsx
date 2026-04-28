@@ -397,7 +397,7 @@ export default function Statue() {
             </h2>
           </motion.div>
 
-         {/* Hide temporarily - Add Statue Images section
+        { /* Hide temporarily - Add Statue Images section
           <div className="grid gap-8 lg:grid-cols-1 mb-12">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <h3 className="text-xl font-semibold text-white mb-4">Add Statue Images</h3>
