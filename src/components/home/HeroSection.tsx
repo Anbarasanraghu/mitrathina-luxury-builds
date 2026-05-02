@@ -83,7 +83,7 @@ export const HeroSection = () => {
           className="mt-10"
         >
           <Button variant="gold" size="lg" asChild className="gap-2">
-            <a href="/Mitrathina_Portfolio (2).pdf" download="Mitrathina_Portfolio.pdf">
+            <a href="/Mitrathina_Portfolio (3).pdf" download="Mitrathina_Portfolio.pdf">
               <Download className="w-5 h-5" />
               Download Our Portfolio
             </a>
